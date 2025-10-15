@@ -1,5 +1,5 @@
 import './PopupTip.scss';
-import { ButtonIcon } from '../../Atoms/Buttons/ButtonIcon/ButtonIcon';
+import ButtonIcon from '../../Atoms/Buttons/ButtonIcon/ButtonIcon';
 import { xmark } from '../../../assets/icons';
 
 const PopupTip = ({title, children, setIsPopupTipOpen}) => {

@@ -7,8 +7,8 @@ import SubmitApprovalForm from '../../../../prototypes/Forms/SubmitApprovalForm/
 import { useState } from 'react';
 import PopupTip from '../../../GeneralTemplates/PopupTip/PopupTip.jsx';
 import PopupTipContent from '../../../../prototypes/Content /PopupTipContent/PopupTipContent.jsx';
-import { ButtonIcon } from '../../../Atoms/Buttons/ButtonIcon/ButtonIcon.jsx';
 import { question } from '../../../../assets/icons/index.js';
+import DepartmentalApproval from '../../DepartmentalApproval/DepartmentalApproval.jsx';
 
 const AccordionRowContent = ({title, courseDetails, isPopupTipOpen, setIsPopupTipOpen, departmentalApproval, isModalOpen, setIsModalOpen}) => {
     const courseInfo = courseDetails.overview;
@@ -24,8 +24,6 @@ const AccordionRowContent = ({title, courseDetails, isPopupTipOpen, setIsPopupTi
     const handleSubmitApprovalRequest = () => {
         console.log('submit request')
     }
-
-    console.log(courseDetails)
     
   return (
     <>
@@ -47,62 +45,42 @@ const AccordionRowContent = ({title, courseDetails, isPopupTipOpen, setIsPopupTi
                 <div className='descr__container'>
                     <div className='descr__container--prereq'>
                         <h4 className='descr__title'>Prerequisite(s)</h4>
-                        <ul>
-                            { courseInfo.prereq.map((item, index) => {
-                                return <li key={index}>{item}</li>
-                                }) 
-                            }
-                            {departmentalApproval && (
-                                <li className='descr__container--prereq-approval'>
-                                    <div className='descr__container--prereq-approval-wrapper'>
-                                        <div className='approval-copy'>
-                                            <p>Departmental approval is required to register after completing the prerequisites.</p>
-                                            <ButtonIcon 
-                                                icon={question}
-                                                handleBtnClick={handleOpenPopupTip}
-                                                                    />
-                                            {isPopupTipOpen && (
-                                                <PopupTip
-                                                    title='Why you need approval?'
-                                                    isPopupTipOpen={isPopupTipOpen}
-                                                    setIsPopupTipOpen={setIsPopupTipOpen}
-                                                    >
-                                                        <PopupTipContent 
-                                                            content = 'Departmental approval is needed to confirm you’ve completed all prerequisites for this course. Please request approval below. You will not be able to register for this course without it.'
-                                                        />
-                                                </PopupTip>
-                                            )}
-                                            
-                                        </div>
-                                        
-                                        <ButtonIconLarge 
-                                            label="request approval"
-                                            isButtonDisabled={false}
-                                            handleBtnClick={handleRequestApproval}
-                                            type= "primary"
-                                        />
-                                    </div>
-                                    
-                                </li>
-                            )}
-                        </ul>
+                            <ul>
+                                { courseInfo.prereq.map((item, index) => {
+                                    return <li key={index}>{item}</li>
+                                    }) 
+                                } 
+                            </ul>                     
                     </div>
                     <div className='descr__container--credits'>
                         <h4 className='descr__title'>Credit(s)</h4>
                         <p>{courseInfo.credits}
                         </p>
                     </div>
-                </div>               
+                </div>
+                 {departmentalApproval && (                          
+                            <DepartmentalApproval
+                                handleOpenPopupTip={handleOpenPopupTip}
+                                isPopupTipOpen={isPopupTipOpen}
+                                setIsPopupTipOpen={setIsPopupTipOpen}
+                                handleRequestApproval={handleRequestApproval}
+                            
+                            />
+                    )}              
                 <div className='descr__container--fee'>
                     <h4 className='descr__title'>Domestic fees</h4>
-                    <span>{`$${courseInfo.domestic_fees.min} - $${courseInfo.domestic_fees.max}`}</span>
-                    <small>See individual course offerings below for actual costs.</small>
+                    <div className='descr__container--fee-wrapper'>
+                        <span>{`$${courseInfo.domestic_fees.min} - $${courseInfo.domestic_fees.max}`}</span>
+                        <small>See individual course offerings below for actual costs.</small>
+                    </div>    
+                     <Notice
+                        heading="International Fees "
+                        descr="are typically 3.25 times the domestic tuition. Exact cost will be calculated upon completion of registration."
+                        type="info"
+                    />
+                    
                 </div>
-                <Notice
-                    heading="International Fees "
-                    descr="are typically 3.25 times the domestic tuition. Exact cost will be calculated upon completion of registration."
-                    type="info"
-                />
+               
             </div> 
             
             }

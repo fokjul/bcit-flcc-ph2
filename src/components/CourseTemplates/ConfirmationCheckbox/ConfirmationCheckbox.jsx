@@ -1,6 +1,6 @@
 import './ConfirmationCheckbox.scss';
 import { useState } from 'react';
-import { ButtonIcon } from '../../Atoms/Buttons/ButtonIcon/ButtonIcon';
+import ButtonIcon from '../../Atoms/Buttons/ButtonIcon/ButtonIcon';
 import { question } from '../../../assets/icons';
 import PopupTip from '../../GeneralTemplates/PopupTip/PopupTip';
 import PopupTipContent from '../../../prototypes/Content /PopupTipContent/PopupTipContent';
@@ -30,7 +30,7 @@ const ConfirmationCheckbox = ({isCheckboxChecked, handleCheckboxCheck, setIsModa
             <label htmlFor="readConfirmation">I have received departmental approval.</label>
             <p>No approval yet?</p>
             <TextLink 
-              text="Submit request"
+              text="Request approval"
               handleClick={() => setIsModalOpen(true)}
             />
               

@@ -1,5 +1,5 @@
 import './Modal.scss';
-import { ButtonIcon } from '../../Atoms/Buttons/ButtonIcon/ButtonIcon';
+import ButtonIcon from '../../Atoms/Buttons/ButtonIcon/ButtonIcon';
 
 import { xmark } from '../../../assets/icons';
 import { useEffect, useState } from 'react';

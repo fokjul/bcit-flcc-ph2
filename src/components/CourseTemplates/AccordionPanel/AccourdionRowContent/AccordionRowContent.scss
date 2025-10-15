@@ -3,7 +3,7 @@
 .descr {
     display: flex;
     flex-direction: column;
-    gap: p.$size-m;
+    gap: p.$size-xl;
     @extend .body-copy;
 
     ul {
@@ -16,7 +16,7 @@
 
     &__title {
         color: p.$secondaryColor--fontGrey;
-        margin-bottom: p.$size-s;
+        margin-bottom: p.$size-xxs;
     }
 
     &__container {
@@ -33,6 +33,13 @@
         &--fee {
             display: flex;
             flex-direction: column;
+            gap: p.$size-xs;
+
+            &-wrapper {
+                display: flex;
+                flex-direction: column;
+                gap: 0;
+            }
         }
 
         &--prereq {
@@ -44,14 +51,20 @@
             }
             
 
-            &-approval {
+            // &-approval {
 
-                &-wrapper {
-                    display: flex;
-                    flex-direction: column;
-                    gap: p.$size-xs;    
-                }
-            }   
+            //     &-wrapper {
+            //         display: flex;
+            //         flex-direction: column;
+            //         gap: p.$size-xs;    
+            //     }
+            // }   
+        }
+
+        &--approval {
+            display: flex;
+            flex-direction: column;
+            gap: p.$size-xs;
         }
         }
     }
