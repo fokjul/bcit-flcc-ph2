@@ -7,7 +7,7 @@ if (href) {
   )
 }
   return (
-    <button className='text-link' onClick={handleClick}>
+    <button type='button' className='text-link' onClick={handleClick}>
       <span className='text-link-copy'>{text}</span>
     </button>
   )

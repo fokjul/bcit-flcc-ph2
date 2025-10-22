@@ -5,13 +5,13 @@ import Modal from '../../../GeneralTemplates/Modal/Modal';
 import SubmitApprovalForm from '../../../../prototypes/Forms/SubmitApprovalForm/SubmitApprovalForm';
 import DepartmentalApproval from '../../DepartmentalApproval/DepartmentalApproval';
 
-const OfferingDetails = ({offeringDetails, courseDetails, departmentalApproval}) => {
-    const [isModalOpen, setIsModalOpen] = useState(false)
+const OfferingDetails = ({offeringDetails, courseDetails, departmentalApproval, isModalOpen, setIsModalOpen, handleRequestApproval}) => {
+    //const [isModalOpen, setIsModalOpen] = useState(false)
     const [isDepartmentalPopupOpen, setIsDepartmentalPopupOpen] = useState(false)
 
-    const handleRequestApproval = () => {
-        setIsModalOpen(true)
-    }
+    // const handleRequestApproval = () => {
+    //     setIsModalOpen(true)
+    // }
 
     const handleOpenDepartmentalPopup = () => {
         setIsDepartmentalPopupOpen(prev => !prev)
@@ -23,7 +23,7 @@ const OfferingDetails = ({offeringDetails, courseDetails, departmentalApproval})
 
   return (
     <>
-        <Modal 
+        {/* <Modal 
             title='Request Approval'
             btnLabel='Submit Request'
             handleBtnClick={handleSubmitApprovalRequest}
@@ -34,7 +34,7 @@ const OfferingDetails = ({offeringDetails, courseDetails, departmentalApproval})
                 isCrnApproval={true}
                 offeringDetails={offeringDetails}
             />
-        </Modal>
+        </Modal> */}
         <div className='offering-details'>
             <div className='offering-details__container'>
             <div className='offering-details__item'>
@@ -57,6 +57,8 @@ const OfferingDetails = ({offeringDetails, courseDetails, departmentalApproval})
                                 isPopupTipOpen={isDepartmentalPopupOpen}
                                 setIsPopupTipOpen={setIsDepartmentalPopupOpen}
                                 handleRequestApproval={handleRequestApproval}
+                                isCrnApproval={true}
+                                offeringDetailsCrn={offeringDetails.crn}
                 />
             }
             <div className='offering-details'>

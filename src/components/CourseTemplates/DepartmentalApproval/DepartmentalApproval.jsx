@@ -5,14 +5,13 @@ import ButtonIconLarge from '../../Atoms/Buttons/ButtonIconLarge/ButtonIconLarge
 import PopupTip from '../../GeneralTemplates/PopupTip/PopupTip';
 import PopupTipContent from '../../../prototypes/Content /PopupTipContent/PopupTipContent';
 
-const DepartmentalApproval = ({ handleOpenPopupTip, isPopupTipOpen,setIsPopupTipOpen,handleRequestApproval 
-}) => {
+const DepartmentalApproval = ({ handleOpenPopupTip, isPopupTipOpen,setIsPopupTipOpen, handleRequestApproval, isCrnApproval=false, offeringDetailsCrn}) => {
   return (
     <div className='descr__container--prereq-approval'>
                                 <h4 className='descr__title'>Registration requirements</h4> 
                                 <div className='descr__container--prereq-approval-wrapper'>
                                     <div className='approval-copy'>
-                                        <p>Departmental approval is required to register for this course.</p>
+                                        <p>{`Departmental approval is required to register for this ${isCrnApproval ? 'course offering' : 'course'}.`}</p>
                                         <ButtonIcon 
                                             icon={question}
                                             handleBtnClick={handleOpenPopupTip}
@@ -24,7 +23,7 @@ const DepartmentalApproval = ({ handleOpenPopupTip, isPopupTipOpen,setIsPopupTip
                                                 setIsPopupTipOpen={setIsPopupTipOpen}
                                                 >
                                                     <PopupTipContent 
-                                                        content = 'Departmental approval is needed for this course. Please request approval below. You will not be able to register for this course without it.'
+                                                        content = {`Departmental approval is needed for this ${isCrnApproval ? 'course offering' : 'course'}. Please request approval below. You will not be able to register for this ${isCrnApproval ? 'course offering' : 'course'} without it.`}
                                                     />
                                             </PopupTip>
                                         )}
@@ -34,7 +33,7 @@ const DepartmentalApproval = ({ handleOpenPopupTip, isPopupTipOpen,setIsPopupTip
                                     <ButtonIconLarge 
                                         label="request approval"
                                         isButtonDisabled={false}
-                                        handleBtnClick={handleRequestApproval}
+                                        handleBtnClick={() => handleRequestApproval(offeringDetailsCrn)}
                                         type= "primary"
                                     />
                                 </div> 

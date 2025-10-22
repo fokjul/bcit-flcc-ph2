@@ -4,7 +4,8 @@ import { useEffect, useState } from 'react';
 import Offering from '../Offering/Offering';
 import Tabs from '../../../Navigation/Tabs/Tabs';
 
-const OfferingList = ({courseDetails, isPopupTipOpen, setIsPopupTipOpen, departmentalApproval, isModalOpen, setIsModalOpen}) => {
+const OfferingList = ({courseDetails, isPopupTipOpen, setIsPopupTipOpen, departmentalApproval, isModalOpen, setIsModalOpen, handleRequestApproval, isCrnApproval}) => {
+
   const termArray = courseDetails.offerings?.map(item => item.term) || [];
   const [tabClicked, setTabClicked] = useState({ 
     id: termArray[0] || '', 
@@ -66,6 +67,8 @@ const OfferingList = ({courseDetails, isPopupTipOpen, setIsPopupTipOpen, departm
               departmentalApproval={departmentalApproval}
               isModalOpen={isModalOpen}
               setIsModalOpen={setIsModalOpen}
+              handleRequestApproval={handleRequestApproval}
+              isCrnApproval={isCrnApproval}
             />
           })}
         </div>

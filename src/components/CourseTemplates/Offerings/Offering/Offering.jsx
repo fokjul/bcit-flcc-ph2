@@ -10,7 +10,7 @@ import OfferingFooterCoursePage from '../OfferingFooterCoursePage/OfferingFooter
 import OfferingFooterCardPage from '../OfferingFooterCardPage/OfferingFooterCardPage';
 
 
-const Offering = ({offeringDetails, cartCounter, setCartCounter, setOfferingsAddedToCart, offeringsAddedToCart, courseDetails, isPopupTipOpen, setIsPopupTipOpen, departmentalApproval, isModalOpen, setIsModalOpen}) => {
+const Offering = ({offeringDetails, cartCounter, setCartCounter, setOfferingsAddedToCart, offeringsAddedToCart, courseDetails, isPopupTipOpen, setIsPopupTipOpen, departmentalApproval, isModalOpen, setIsModalOpen, handleRequestApproval, isCrnApproval}) => {
 
   const [isViewDetailsClicked, setIsViewDetailsClicked] = useState({
     id: '',
@@ -34,6 +34,10 @@ const Offering = ({offeringDetails, cartCounter, setCartCounter, setOfferingsAdd
           isPopupTipOpen = {isPopupTipOpen}
           setIsPopupTipOpen = {setIsPopupTipOpen}
           departmentalApproval = {departmentalApproval}
+          isModalOpen={isModalOpen}
+          setIsModalOpen={setIsModalOpen}
+          handleRequestApproval={handleRequestApproval}
+          offeringDetailsCrn={offeringDetails.crn}
         />
       }
 
@@ -52,6 +56,9 @@ const Offering = ({offeringDetails, cartCounter, setCartCounter, setOfferingsAdd
         setIsPopupTipOpen = {setIsPopupTipOpen}
         isModalOpen={isModalOpen}
         setIsModalOpen={setIsModalOpen}
+        handleRequestApproval={handleRequestApproval}
+        offeringDetailsCrn={offeringDetails.crn}
+        isCrnApproval={isCrnApproval}
       />  }
          
     </div>

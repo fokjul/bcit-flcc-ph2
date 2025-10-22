@@ -10,7 +10,7 @@ import ButtonLink from '../../../Atoms/Buttons/ButtonLink/ButtonLink';
 import ButtonIconLarge from '../../../Atoms/Buttons/ButtonIconLarge/ButtonIconLarge';
 import ConfirmationCheckbox from '../../ConfirmationCheckbox/ConfirmationCheckbox';
 
-const OfferingFooterCoursePage = ({offeringDetails, cartCounter, setCartCounter, setOfferingsAddedToCart, offeringsAddedToCart, courseDetails, isViewDetailsClicked, setIsViewDetailsClicked, isModalOpen, setIsModalOpen}) => {
+const OfferingFooterCoursePage = ({offeringDetails, cartCounter, setCartCounter, setOfferingsAddedToCart, offeringsAddedToCart, courseDetails, isViewDetailsClicked, setIsViewDetailsClicked, isModalOpen, setIsModalOpen, handleRequestApproval, offeringDetailsCrn, isCrnApproval}) => {
 
   const [isCheckboxChecked, setIsCheckboxChecked] = useState({
     departmentalApproval: false,
@@ -85,6 +85,9 @@ const OfferingFooterCoursePage = ({offeringDetails, cartCounter, setCartCounter,
                       handleCheckboxCheck={handleCheckboxCheck}
                       isModalOpen={isModalOpen}
                       setIsModalOpen={setIsModalOpen}
+                      handleRequestApproval={handleRequestApproval}
+                      offeringDetailsCrn={offeringDetailsCrn}
+                      isCrnApproval={isCrnApproval}
                       />
                   <div className='offering-details__available'>
                     <div className='offering-details__subscribe'>

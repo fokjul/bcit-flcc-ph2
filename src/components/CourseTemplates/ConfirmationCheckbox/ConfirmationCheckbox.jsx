@@ -1,13 +1,16 @@
 import './ConfirmationCheckbox.scss';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ButtonIcon from '../../Atoms/Buttons/ButtonIcon/ButtonIcon';
 import { question } from '../../../assets/icons';
 import PopupTip from '../../GeneralTemplates/PopupTip/PopupTip';
 import PopupTipContent from '../../../prototypes/Content /PopupTipContent/PopupTipContent';
 import TextLink from '../../Navigation/TextLink/TextLink';
 
-const ConfirmationCheckbox = ({isCheckboxChecked, handleCheckboxCheck, setIsModalOpen}) => {
+
+const ConfirmationCheckbox = ({isCheckboxChecked, handleCheckboxCheck, handleRequestApproval, offeringDetailsCrn, isCrnApproval}) => {
+  console.log(isCrnApproval)
   const [isConfirmationPopupOpen, setIsConfirmationPopupOpen] = useState(false);
+  
   return (
     <div>
         <div className='confirmationSection'>
@@ -31,7 +34,7 @@ const ConfirmationCheckbox = ({isCheckboxChecked, handleCheckboxCheck, setIsModa
             <p>No approval yet?</p>
             <TextLink 
               text="Request approval"
-              handleClick={() => setIsModalOpen(true)}
+              handleClick={() => handleRequestApproval(offeringDetailsCrn)}
             />
               
             <ButtonIcon 
@@ -45,7 +48,7 @@ const ConfirmationCheckbox = ({isCheckboxChecked, handleCheckboxCheck, setIsModa
                     setIsPopupTipOpen={setIsConfirmationPopupOpen}
                     >
                         <PopupTipContent 
-                          content = 'Departmental approval is required to confirm you have completed all prerequisites. If you have not received approval yet, please submit a request above - you will not be able to register without it.'
+                          content = {`Departmental approval is needed for this ${isCrnApproval ? 'course offering' : 'course'}. Please request approval below. You will not be able to register for this ${isCrnApproval ? 'course offering' : 'course'} without it.`}
                         />
                 </PopupTip>
             )}
@@ -63,6 +66,7 @@ const ConfirmationCheckbox = ({isCheckboxChecked, handleCheckboxCheck, setIsModa
             </div>
         </div>
     </div>
+    
   )
 }
 

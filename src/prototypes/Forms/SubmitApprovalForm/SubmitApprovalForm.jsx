@@ -2,7 +2,7 @@ import FormInputText from '../../../components/Atoms/FormInputText/FormInputText
 import './SubmitApprovalForm.scss';
 import { useState, useEffect } from 'react';
 
-const SubmitApprovalForm = ({ courseDetails, isCrnApproval = false, offeringDetails }) => {
+const SubmitApprovalForm = ({ courseDetails, isCrnApproval = false, offeringCrn}) => {
 
   return (
     <div className='form__container'>
@@ -26,7 +26,7 @@ const SubmitApprovalForm = ({ courseDetails, isCrnApproval = false, offeringDeta
             placeholder= 'E.g., 123456'
             required = {false}
             disabled = {true}
-            value = {offeringDetails.crn}
+            value = {offeringCrn}
           />
         )}
         <FormInputText 

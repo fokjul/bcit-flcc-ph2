@@ -11,7 +11,8 @@ import Accordion from "../../components/CourseTemplates/AccordionPanel/Accordion
 import PageLayout from "../../components/Layout/PageLayout/PageLayout";
 import SidebarNotices from "../../components/Navigation/Sidebar/SidebarNotices/SidebarNotices";
 import TextLinkSmall from "../../components/Navigation/TextLinkSmall/TextLinkSmall";
-
+import Modal from "../../components/GeneralTemplates/Modal/Modal";
+import SubmitApprovalForm from "../../prototypes/Forms/SubmitApprovalForm/SubmitApprovalForm";
 
 const CoursePage = () => {
   const [courseDetails, setCourseDetails] = useState({});
@@ -33,6 +34,14 @@ const CoursePage = () => {
   useEffect(() => {
     getCourseDetails();
   }, []);
+
+  const handleSubmitApprovalRequest = () => {
+    console.log('submit request')
+  }
+
+  const handleRequestApproval = () => {
+    setIsModalOpen(true)
+  }
  
   return (
     <PageLayout>
@@ -50,6 +59,18 @@ const CoursePage = () => {
       <div className="contentArea">
         <SidebarNotices />
         <div className="contentArea__main">
+          <Modal 
+            title= {`Request Approval`}
+            btnLabel='Request Approval'
+            handleBtnClick={handleSubmitApprovalRequest}
+            isModalOpen = {isModalOpen}
+            setIsModalOpen = {setIsModalOpen}>
+            
+            <SubmitApprovalForm 
+              courseDetails = {courseDetails}
+            />
+          </Modal>
+
           <Accordion 
             courseDetails={courseDetails} 
             isPopupTipOpen = {isPopupTipOpen}
@@ -65,6 +86,8 @@ const CoursePage = () => {
             departmentalApproval={false}
             isModalOpen={isModalOpen}
             setIsModalOpen={setIsModalOpen}
+            handleRequestApproval={handleRequestApproval}
+            isCrnApproval={false}
           />
           
           <div className="contentArea__cancelNotice">
