@@ -27,17 +27,6 @@ const AccordionRowContent = ({title, courseDetails, isPopupTipOpen, setIsPopupTi
     
   return (
     <>
-    {/* <Modal 
-        title= {`Request Approval`}
-        btnLabel='Request Approval'
-        handleBtnClick={handleSubmitApprovalRequest}
-        isModalOpen = {isModalOpen}
-        setIsModalOpen = {setIsModalOpen}>
-        
-        <SubmitApprovalForm 
-            courseDetails = {courseDetails}
-        />
-    </Modal> */}
      <div>
         {courseInfo && title === "Course Overview" 
             && <div className='descr'>

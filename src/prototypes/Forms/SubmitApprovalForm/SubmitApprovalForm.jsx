@@ -1,6 +1,6 @@
 import FormInputText from '../../../components/Atoms/FormInputText/FormInputText'
 import './SubmitApprovalForm.scss';
-import { useState, useEffect } from 'react';
+import FormAttachmentField from '../../../components/Atoms/FormInputText/FormAttachmentField'
 
 const SubmitApprovalForm = ({ courseDetails, isCrnApproval = false, offeringCrn}) => {
 
@@ -43,6 +43,13 @@ const SubmitApprovalForm = ({ courseDetails, isCrnApproval = false, offeringCrn}
           placeholder= 'E.g., example@gmail.com'
           type='email'
           required = {true}
+        />
+        <FormAttachmentField 
+          name = 'studentAttachment'
+          id = 'studentAttachment'
+          label = 'Attachment'
+          required = {false}
+          type = 'file'
         />
       </form>
     </div>

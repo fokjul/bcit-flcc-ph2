@@ -58,7 +58,6 @@ const handleFormSubmission = () => {
                                 isButtonDisabled = {false}
                             /> 
                         </div>
-                        
                         </>
                     : <>
                         <div className='modal__content'>

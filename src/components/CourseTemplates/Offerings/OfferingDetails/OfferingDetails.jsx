@@ -6,12 +6,7 @@ import SubmitApprovalForm from '../../../../prototypes/Forms/SubmitApprovalForm/
 import DepartmentalApproval from '../../DepartmentalApproval/DepartmentalApproval';
 
 const OfferingDetails = ({offeringDetails, courseDetails, departmentalApproval, isModalOpen, setIsModalOpen, handleRequestApproval}) => {
-    //const [isModalOpen, setIsModalOpen] = useState(false)
     const [isDepartmentalPopupOpen, setIsDepartmentalPopupOpen] = useState(false)
-
-    // const handleRequestApproval = () => {
-    //     setIsModalOpen(true)
-    // }
 
     const handleOpenDepartmentalPopup = () => {
         setIsDepartmentalPopupOpen(prev => !prev)

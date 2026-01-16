@@ -1,0 +1,17 @@
+@use '../../../styles/partials/' as p;
+
+.formField__file {
+    border: 1px solid p.$border-darkGrey; 
+    border-radius: p.$size-xxs;
+    padding: p.$size-s;
+    background-color: p.$background-grey;
+
+    &:focus {
+        outline: 2px solid p.$border-darkGrey; 
+    }
+
+}
+
+.formField__caption {
+    font-size: p.$font-xs;
+}
