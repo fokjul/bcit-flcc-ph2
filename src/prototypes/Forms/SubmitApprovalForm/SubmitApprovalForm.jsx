@@ -9,7 +9,12 @@ const SubmitApprovalForm = ({ courseDetails, isCrnApproval = false, offeringCrn}
       <p className='form__description'>
           {`You must request departmental approval to register for this ${isCrnApproval ? 'course offering' : 'course'}. Submit your request below. We’ll review your record and follow up by email.`}</p>
       <form>
-        <FormInputText 
+        <div className='form__course-info'>
+          <h5>Course Name</h5>
+          <p>{courseDetails ? `${courseDetails.title} - ${courseDetails.crn}` : ''}</p>
+        </div>
+        
+        {/* <FormInputText 
           name = 'courseName'
           id = 'courseName'
           label = 'Course Name'
@@ -17,23 +22,44 @@ const SubmitApprovalForm = ({ courseDetails, isCrnApproval = false, offeringCrn}
           required = {false}
           disabled = {true}
           value = {courseDetails ? `${courseDetails.title} - ${courseDetails.crn}` : ''}
-        />
+        /> */}
         {isCrnApproval && (
-          <FormInputText 
-            name = 'courseCrn'
-            id = 'courseCrn'
-            label = 'Course CRN'
-            placeholder= 'E.g., 123456'
-            required = {false}
-            disabled = {true}
-            value = {offeringCrn}
-          />
+          <div className='form__course-info'>
+          <h5>Course CRN</h5>
+          <p>{offeringCrn}</p>
+        </div>
+          // <FormInputText 
+          //   name = 'courseCrn'
+          //   id = 'courseCrn'
+          //   label = 'Course CRN'
+          //   placeholder= 'E.g., 88278'
+          //   required = {false}
+          //   disabled = {true}
+          //   value = {offeringCrn}
+          // />
         )}
+        {!isCrnApproval && (
+          <FormInputText 
+          name = 'courseCRN'
+          id = 'courseCRN'
+          label = 'Course CRN'
+          placeholder= ''
+          required = {false}
+        />
+        )}
+        
         <FormInputText 
           name = 'bcitId'
           id = 'bcitId'
           label = 'BCIT ID'
           placeholder= 'E.g., A01234567'
+          required = {true}
+        />
+        <FormInputText 
+          name = 'legalName'
+          id = 'legalName'
+          label = 'Legal Full Name'
+          placeholder= ''
           required = {true}
         />
         <FormInputText 

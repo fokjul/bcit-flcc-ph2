@@ -9,6 +9,16 @@
         display: flex;
         flex-direction: column;
         gap: p.$size-m;
+
+        .form__course-info {
+            display: flex;
+            flex-direction: column;
+            gap: p.$size-xs;
+            
+            h5 {
+                color: p.$secondaryColor--fontGrey;
+            }
+        }
     }
 
 }
