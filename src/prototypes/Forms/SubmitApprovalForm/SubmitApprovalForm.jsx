@@ -38,7 +38,7 @@ const SubmitApprovalForm = ({ courseDetails, isCrnApproval = false, offeringCrn}
           //   value = {offeringCrn}
           // />
         )}
-        {!isCrnApproval && (
+        {/* {!isCrnApproval && (
           <FormInputText 
           name = 'courseCRN'
           id = 'courseCRN'
@@ -46,7 +46,7 @@ const SubmitApprovalForm = ({ courseDetails, isCrnApproval = false, offeringCrn}
           placeholder= ''
           required = {false}
         />
-        )}
+        )} */}
         
         <FormInputText 
           name = 'bcitId'
